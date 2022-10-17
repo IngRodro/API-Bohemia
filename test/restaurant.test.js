@@ -1,5 +1,4 @@
 import restaurantModel from '../src/Application/v1/restaurant/restaurant.model';
-import { server } from '../src/main';
 import {
   initialRestaurants,
   api,

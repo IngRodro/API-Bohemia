@@ -1,6 +1,9 @@
 import express from 'express';
-import { initializeDB } from './db';
 import cors from 'cors';
+import getConfig from 'config';
+import { initializeDB } from './db';
+
+const { port } = getConfig();
 
 export const app = express();
 
@@ -16,4 +19,8 @@ export const initializeServer = async (routes) => {
 
   // set urls
   app.use(routes);
+
+  app.listen(port, () => {
+    console.log(`This APP is listening on http://localhost:${port}`);
+  });
 };

@@ -1,14 +1,7 @@
 import 'dotenv/config';
-import getConfig from 'config';
-import routes from './Routes';
-import { initializeServer, app } from './Server/index';
+import routes from './routes';
+import { initializeServer } from './Server';
 
-const { port } = getConfig();
+const startServer = initializeServer(routes);
 
-initializeServer(routes);
-
-export const App = app;
-// create express app
-export const server = app.listen(port, () => {
-  console.log(`Example app listening on http://localhost:${port}`);
-});
+export default startServer;
