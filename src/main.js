@@ -1,7 +1,13 @@
 import 'dotenv/config';
-import routes from './routes';
-import { initializeServer } from './Server';
+import getConfig from 'config';
+import routes from './Routes';
+import { initializeServer, app } from './Server/index';
 
-const startServer = initializeServer(routes);
+const { port } = getConfig();
 
-export default startServer;
+initializeServer(routes);
+
+export const App = app;
+// create express app
+export const server = app.listen(port, () => {
+});
