@@ -9,6 +9,6 @@ initializeServer(routes);
 
 export const App = app;
 // create express app
-export const server = app.listen(port, () => {
+export const server = app.listen(8080, () => {
   console.log(`Example app listening on http://localhost:${port}`);
 });
