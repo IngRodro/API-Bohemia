@@ -44,7 +44,8 @@
     "supertest": "^6.2.3"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "testTimeout": 30000
   },
   "engines": {
     "node": ">=14.x",

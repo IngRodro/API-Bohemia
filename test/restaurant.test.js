@@ -8,7 +8,6 @@ import {
 
 beforeEach(async () => {
   await restaurantModel.deleteMany({});
-
   await restaurantModel.create(initialRestaurants);
 });
 
@@ -26,7 +25,7 @@ describe('Obtener restaurantes', () => {
 });
 
 describe('Creacion de un restaurante', () => {
-  test('Es posible con un restaurante valido', async () => {
+  test('Es posible guardar con un restaurante valido', async () => {
     const newRestaurant = {
       name: 'Restaurant 3',
       email: 'restaurant3@gmail.com',
@@ -66,7 +65,7 @@ describe('Creacion de un restaurante', () => {
     expect(names).toContain(newRestaurant.name);
   });
 
-  test("No es posible con las propiedades vacias de un restaurante", async () => {
+  test("No es posible guardar con las propiedades vacias de un restaurante", async () => {
     const newRestaurant = {
       name: '',
       email: '',
@@ -102,7 +101,7 @@ describe('Creacion de un restaurante', () => {
     expect(response.body.restaurants).toHaveLength(initialRestaurants.length);
   });
 
-  test('No es posible con un restaurante valido', async () => {
+  test('No es posible guardar con un restaurante invalido', async () => {
     const newRestaurant = {
       name: 123,
       email: 208,
@@ -139,7 +138,7 @@ describe('Creacion de un restaurante', () => {
 });
 
 describe('Actualizar restaurante', () => {
-  test('Es posible con un restaurante valido', async () => {
+  test('Es posible actualizar con un restaurante valido', async () => {
     const restaurants = await restaurantModel.find();
     const updateRestaurant = {
       name: 'Restaurant Updated',
@@ -181,7 +180,7 @@ describe('Actualizar restaurante', () => {
     expect(restaurantUpdated).toHaveProperty('closingHour', updateRestaurant.closingHour);
   });
 
-  test("No es posible con las propiedades vacias de un restaurante", async () => {
+  test("No es posible actualizar con las propiedades vacias de un restaurante", async () => {
     const restaurants = await restaurantModel.find();
     const updateRestaurant = {
       name: '',
@@ -221,7 +220,7 @@ describe('Actualizar restaurante', () => {
     expect(restaurantUpdated).toHaveProperty('closingHour', restaurants[0].closingHour);
   });
 
-  test('No es posible con un restaurante valido', async () => {
+  test('No es posible actualizar con un restaurante invalido', async () => {
     const restaurants = await restaurantModel.find();
 
     await api
