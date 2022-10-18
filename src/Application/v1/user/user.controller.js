@@ -30,6 +30,13 @@ export const createUser = async (req, res) => {
       message: 'User already exists',
     });
   }
+  if (!name || !username || !password) {
+    return res.status(400).json({
+      message: 'All fields are required',
+      code: 400,
+    });
+  }
+
   const newUser = {
     name,
     username,

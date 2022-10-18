@@ -49,8 +49,3 @@ export const getAllNamesfromRestaurant = async () => {
     response
   };
 };
-
-export const getRestaurant = async () => {
-  const restaurants = await RestaurantModel.find({});
-  return restaurants.map((restaurant) => restaurant.toJSON());
-};

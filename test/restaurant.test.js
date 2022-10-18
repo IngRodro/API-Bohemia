@@ -55,7 +55,7 @@ describe('Creacion de un restaurante', () => {
       .field('user', newRestaurant.user)
       .attach('image', newRestaurant.dir)
       .set('Content-Type', 'multipart/form-data')
-      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjNjg3NjAzZWFmOWU4ZTBkMTgyOGEiLCJpYXQiOjE2NjU5NTIyMDIsImV4cCI6MTY2NjAzODYwMn0.TjuANR15TqW9KRS6WnMegTrgdjt1D6thxGmHpnY85Ng')
+      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjZTI3Zjk3MzFiN2JhNzg2OTlkZDgiLCJpYXQiOjE2NjYxMzU1NjgsImV4cCI6MTY2NjIyMTk2OH0.IwH6EDoxptuaF3lpwni4iEtCkud7BFtwhHqaj57h7io')
       .expect(201);
 
     const { names, response } = await getAllNamesfromRestaurant();
@@ -92,7 +92,7 @@ describe('Creacion de un restaurante', () => {
       .field('openingHour', newRestaurant.openingHour)
       .field('closingHour', newRestaurant.closingHour)
       .set('Content-Type', 'multipart/form-data')
-      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjNjg3NjAzZWFmOWU4ZTBkMTgyOGEiLCJpYXQiOjE2NjU5NTIyMDIsImV4cCI6MTY2NjAzODYwMn0.TjuANR15TqW9KRS6WnMegTrgdjt1D6thxGmHpnY85Ng')
+      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjZTI3Zjk3MzFiN2JhNzg2OTlkZDgiLCJpYXQiOjE2NjYxMzU1NjgsImV4cCI6MTY2NjIyMTk2OH0.IwH6EDoxptuaF3lpwni4iEtCkud7BFtwhHqaj57h7io')
       .expect(400);
 
     const response = await api.get('/v1/restaurants');
@@ -128,7 +128,7 @@ describe('Creacion de un restaurante', () => {
       .field('closingHour', newRestaurant.closingHour)
       .expect(400)
       .set('Content-Type', 'multipart/form-data')
-      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjNjg3NjAzZWFmOWU4ZTBkMTgyOGEiLCJpYXQiOjE2NjU5NTIyMDIsImV4cCI6MTY2NjAzODYwMn0.TjuANR15TqW9KRS6WnMegTrgdjt1D6thxGmHpnY85Ng')
+      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjZTI3Zjk3MzFiN2JhNzg2OTlkZDgiLCJpYXQiOjE2NjYxMzU1NjgsImV4cCI6MTY2NjIyMTk2OH0.IwH6EDoxptuaF3lpwni4iEtCkud7BFtwhHqaj57h7io')
 
     const response = await api.get('/v1/restaurants');
 
@@ -165,7 +165,7 @@ describe('Actualizar restaurante', () => {
       .field('closingHour', updateRestaurant.closingHour)
       .attach('logo', updateRestaurant.dir)
       .set('Content-Type', 'multipart/form-data')
-      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjNjg3NjAzZWFmOWU4ZTBkMTgyOGEiLCJpYXQiOjE2NjU5NTIyMDIsImV4cCI6MTY2NjAzODYwMn0.TjuANR15TqW9KRS6WnMegTrgdjt1D6thxGmHpnY85Ng')
+      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjZTI3Zjk3MzFiN2JhNzg2OTlkZDgiLCJpYXQiOjE2NjYxMzU1NjgsImV4cCI6MTY2NjIyMTk2OH0.IwH6EDoxptuaF3lpwni4iEtCkud7BFtwhHqaj57h7io')
       .expect(200);
 
     const restaurantUpdated = await restaurantModel.findById(restaurants[0]._id);
@@ -205,7 +205,7 @@ describe('Actualizar restaurante', () => {
       .field('openingHour', updateRestaurant.openingHour)
       .field('closingHour', updateRestaurant.closingHour)
       .set('Content-Type', 'multipart/form-data')
-      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjNjg3NjAzZWFmOWU4ZTBkMTgyOGEiLCJpYXQiOjE2NjU5NTIyMDIsImV4cCI6MTY2NjAzODYwMn0.TjuANR15TqW9KRS6WnMegTrgdjt1D6thxGmHpnY85Ng')
+      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjZTI3Zjk3MzFiN2JhNzg2OTlkZDgiLCJpYXQiOjE2NjYxMzU1NjgsImV4cCI6MTY2NjIyMTk2OH0.IwH6EDoxptuaF3lpwni4iEtCkud7BFtwhHqaj57h7io')
       .expect(400);
 
     const restaurantUpdated = await restaurantModel.findById(restaurants[0]._id);
@@ -225,7 +225,7 @@ describe('Actualizar restaurante', () => {
     await api
       .put(`/v1/restaurants/${restaurants[0]._id}`)
       .set('Content-Type', 'multipart/form-data')
-      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjNjg3NjAzZWFmOWU4ZTBkMTgyOGEiLCJpYXQiOjE2NjU5NTIyMDIsImV4cCI6MTY2NjAzODYwMn0.TjuANR15TqW9KRS6WnMegTrgdjt1D6thxGmHpnY85Ng')
+      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjZTI3Zjk3MzFiN2JhNzg2OTlkZDgiLCJpYXQiOjE2NjYxMzU1NjgsImV4cCI6MTY2NjIyMTk2OH0.IwH6EDoxptuaF3lpwni4iEtCkud7BFtwhHqaj57h7io')
       .expect(400);
 
     const restaurantUpdated = await restaurantModel.findById(restaurants[0]._id);
