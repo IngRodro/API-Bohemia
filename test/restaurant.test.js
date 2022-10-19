@@ -4,10 +4,14 @@ import {
   api,
   getAllNamesfromRestaurant,
 } from './helper/restaurant.helper';
+import userModel from '../src/Application/v1/user/user.model';
+import {initialUsers} from './helper/user.helper';
 
 beforeEach(async () => {
   await restaurantModel.deleteMany({});
   await restaurantModel.create(initialRestaurants);
+  await userModel.deleteMany({username: ['Rodrigo15', 'Laura23', 'YoshiG2']});
+  await userModel.create(initialUsers);
 });
 
 describe('Obtener restaurantes', () => {
@@ -240,6 +244,74 @@ describe('Actualizar restaurante', () => {
   });
 });
 
-afterAll(() => {
-  server.close();
+
+describe('Logueo', () => {
+  test('Es posible loguearse con un usuario correcto', async () => {
+    const res = await api.post('/v1/users/login').send({ username : "IngRodrigo",
+      password : "123"})
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json')
+    expect(res.status).toBe(200)
+  });
+
+  test('No es posible loguearse con un usuario incorrecto', async () => {
+    const res = await api.post('/v1/users/login').send({ username : "IngRodrigo",
+      password : "1234"})
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json')
+    expect(res.status).toBe(401)
+  });
+})
+
+describe('Creacion de un usuario', () => {
+  test('Es posible crear con un usuario valido', async () => {
+    const newUser = {
+      name: 'Joshua Galdamez',
+      username: 'YoshiG2',
+      password: '123'
+    };
+
+    await api
+      .post('/v1/users')
+      .send({
+        ...newUser
+      })
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json')
+      .expect(201);
+  });
+
+  test("No es posible guardar con las propiedades vacias de un usuario", async () => {
+    const newUser = {
+      name: '',
+      username: '',
+      password: ''
+    };
+
+    await api
+      .post('/v1/users')
+      .send({
+        ...newUser
+      })
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json')
+      .expect(400);
+  });
+
+  test('No es posible guardar con un usuario invalido', async () => {
+    const newUser = {
+      name: 123,
+      username: null,
+      password: '123'
+    };
+
+    await api
+      .post('/v1/users')
+      .send({
+        ...newUser
+      })
+      .set('Content-Type', 'application/json')
+      .set('Accept', 'application/json')
+      .expect(400);
+  });
 });
