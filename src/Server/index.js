@@ -3,9 +3,7 @@ import cors from 'cors';
 import { initializeDB } from './db';
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200,
-  headers: 'Content-Type, auth-token',
+  allowedHeaders: 'Content-Type, auth-token',
 };
 
 export const app = express();
