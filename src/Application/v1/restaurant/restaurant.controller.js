@@ -19,23 +19,19 @@ export const getRestaurantByUser = async (req, res) => {
 };
 
 export const getRestaurantByLocation = async (req, res) => {
-  const { department, municipality, page, size } = req.query;
+  const {municipality, page, size } = req.query;
   const { offset, limit } = getPagination(page, size);
 
   try {
     let data;
-    if (municipality) {
+    if (municipality === 'Seleccione un municipio') {
       data = await RestaurantModel.find({
-        department,
-        municipality,
         status: 'active',
       });
     } else {
-      data = municipality ? await RestaurantModel.find({
-        department,
+      data = await RestaurantModel.find({
         status: 'active',
-      }) : await RestaurantModel.find({
-        status: 'active',
+        municipality,
       });
     }
     if (offset >= data.length) {

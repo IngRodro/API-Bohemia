@@ -15,12 +15,6 @@ beforeEach(async () => {
 });
 
 describe('Obtener restaurantes', () => {
-  test('Obtener todos los restaurantes', () => api
-    .get('/v1/restaurants/')
-    .expect(200)
-    .expect('Content-Type', /application\/json/)
-  );
-
   test('Obtener restaurantes iniciales', async () => {
     const response = await api.get('/v1/restaurants/');
     expect(response.body.restaurants).toHaveLength(initialRestaurants.length);
@@ -34,7 +28,7 @@ describe('Creacion de un restaurante', () => {
       email: 'restaurant3@gmail.com',
       status: 'active',
       department: 'Chalatenango',
-      municipality: 'Santa Rita',
+      municipality: 'Chalatenango',
       direction: 'Direction 3',
       delivery: true,
       phone: '567891234',
@@ -208,26 +202,6 @@ describe('Actualizar restaurante', () => {
       .field('phone', updateRestaurant.phone)
       .field('openingHour', updateRestaurant.openingHour)
       .field('closingHour', updateRestaurant.closingHour)
-      .set('Content-Type', 'multipart/form-data')
-      .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjZTI3Zjk3MzFiN2JhNzg2OTlkZDgiLCJpYXQiOjE2NjYxMzU1NjgsImV4cCI6MTY2NjIyMTk2OH0.IwH6EDoxptuaF3lpwni4iEtCkud7BFtwhHqaj57h7io')
-      .expect(400);
-
-    const restaurantUpdated = await restaurantModel.findById(restaurants[0]._id);
-    expect(restaurantUpdated).toHaveProperty('name', restaurants[0].name);
-    expect(restaurantUpdated).toHaveProperty('email', restaurants[0].email);
-    expect(restaurantUpdated).toHaveProperty('department', restaurants[0].department);
-    expect(restaurantUpdated).toHaveProperty('municipality', restaurants[0].municipality);
-    expect(restaurantUpdated).toHaveProperty('direction', restaurants[0].direction);
-    expect(restaurantUpdated).toHaveProperty('phone', restaurants[0].phone);
-    expect(restaurantUpdated).toHaveProperty('openingHour', restaurants[0].openingHour);
-    expect(restaurantUpdated).toHaveProperty('closingHour', restaurants[0].closingHour);
-  });
-
-  test('No es posible actualizar con un restaurante invalido', async () => {
-    const restaurants = await restaurantModel.find();
-
-    await api
-      .put(`/v1/restaurants/${restaurants[0]._id}`)
       .set('Content-Type', 'multipart/form-data')
       .set('auth-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOiI2MzRjZTI3Zjk3MzFiN2JhNzg2OTlkZDgiLCJpYXQiOjE2NjYxMzU1NjgsImV4cCI6MTY2NjIyMTk2OH0.IwH6EDoxptuaF3lpwni4iEtCkud7BFtwhHqaj57h7io')
       .expect(400);
