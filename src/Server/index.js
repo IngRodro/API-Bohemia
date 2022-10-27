@@ -4,6 +4,7 @@ import { initializeDB } from './db';
 
 const corsOptions = {
   allowedHeaders: 'Content-Type, auth-token',
+  exposedHeaders: 'auth-token',
 };
 
 export const app = express();
