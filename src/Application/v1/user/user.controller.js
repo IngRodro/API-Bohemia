@@ -46,7 +46,6 @@ export const createUser = async (req, res) => {
     const data = await userModel.create(newUser);
     return res.status(201).json(data);
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       message: 'Error al crear el usuario',
       code: 500,
@@ -73,7 +72,6 @@ export const updateUser = async (req, res) => {
     const data = await userModel.findByIdAndUpdate(idUser, updatedUser);
     return res.status(200).json(data);
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       message: 'Error updating user',
       code: 500,

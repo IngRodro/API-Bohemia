@@ -7,14 +7,13 @@ const { Token } = getConfig();
 export const TokenValidation = (req, res, next) => {
   try {
     const token = req.header('auth-token');
-    console.log(token);
     if (!token) {
       return res.status(401).json({
         message: 'Access Denied',
         code: 401,
       });
     }
-    const payload = jwt.verify(token, Token.secret || '');
+    const payload = jwt.verify(token, Token.secret);
     req.idUser = payload.idUser;
     return next();
   } catch (e) {
