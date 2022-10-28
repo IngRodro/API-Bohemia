@@ -30,7 +30,6 @@ describe('Creacion de un restaurante', () => {
       department: 'Chalatenango',
       municipality: 'Chalatenango',
       direction: 'Direction 3',
-      delivery: true,
       phone: '567891234',
       openingHour: '09:00',
       closingHour: '21:00',
@@ -46,7 +45,6 @@ describe('Creacion de un restaurante', () => {
       .field('department', newRestaurant.department)
       .field('municipality', newRestaurant.municipality)
       .field('direction', newRestaurant.direction)
-      .field('delivery', newRestaurant.delivery)
       .field('phone', newRestaurant.phone)
       .field('openingHour', newRestaurant.openingHour)
       .field('closingHour', newRestaurant.closingHour)
@@ -70,7 +68,6 @@ describe('Creacion de un restaurante', () => {
       department: '',
       municipality: '',
       direction: '',
-      delivery: '',
       phone: '',
       openingHour: '',
       closingHour: '',
@@ -85,7 +82,6 @@ describe('Creacion de un restaurante', () => {
       .field('department', newRestaurant.department)
       .field('municipality', newRestaurant.municipality)
       .field('direction', newRestaurant.direction)
-      .field('delivery', newRestaurant.delivery)
       .field('phone', newRestaurant.phone)
       .field('openingHour', newRestaurant.openingHour)
       .field('closingHour', newRestaurant.closingHour)
@@ -106,7 +102,6 @@ describe('Creacion de un restaurante', () => {
       department: false,
       municipality: 0.5,
       direction: 11.0,
-      delivery: 'true',
       phone: 100,
       openingHour: 22.5,
       closingHour: 32,
@@ -120,7 +115,6 @@ describe('Creacion de un restaurante', () => {
       .field('department', newRestaurant.department)
       .field('municipality', newRestaurant.municipality)
       .field('direction', newRestaurant.direction)
-      .field('delivery', newRestaurant.delivery)
       .field('phone', newRestaurant.phone)
       .field('openingHour', newRestaurant.openingHour)
       .field('closingHour', newRestaurant.closingHour)
@@ -143,7 +137,6 @@ describe('Actualizar restaurante', () => {
       department: 'Chalatenango',
       municipality: 'Santa Rita',
       direction: 'Direction Updated',
-      delivery: false,
       phone: '345678912',
       openingHour: '10:00',
       closingHour: '22:00',
@@ -157,7 +150,6 @@ describe('Actualizar restaurante', () => {
       .field('department', updateRestaurant.department)
       .field('municipality', updateRestaurant.municipality)
       .field('direction', updateRestaurant.direction)
-      .field('delivery', updateRestaurant.delivery)
       .field('phone', updateRestaurant.phone)
       .field('openingHour', updateRestaurant.openingHour)
       .field('closingHour', updateRestaurant.closingHour)
@@ -185,7 +177,6 @@ describe('Actualizar restaurante', () => {
       department: '',
       municipality: '',
       direction: '',
-      delivery: '',
       phone: '',
       openingHour: '',
       closingHour: '',
@@ -198,7 +189,6 @@ describe('Actualizar restaurante', () => {
       .field('department', updateRestaurant.department)
       .field('municipality', updateRestaurant.municipality)
       .field('direction', updateRestaurant.direction)
-      .field('delivery', updateRestaurant.delivery)
       .field('phone', updateRestaurant.phone)
       .field('openingHour', updateRestaurant.openingHour)
       .field('closingHour', updateRestaurant.closingHour)

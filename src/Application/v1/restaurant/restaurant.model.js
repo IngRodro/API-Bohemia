@@ -30,10 +30,6 @@ const restaurant = new Schema(
       type: String,
       required: true,
     },
-    delivery: {
-      type: Boolean,
-      required: true,
-    },
     phone: {
       type: String,
       required: true,

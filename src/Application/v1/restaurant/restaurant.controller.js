@@ -19,7 +19,7 @@ export const getRestaurantByUser = async (req, res) => {
 };
 
 export const getRestaurantByLocation = async (req, res) => {
-  const {municipality, page, size } = req.query;
+  const { municipality, page, size } = req.query;
   const { offset, limit } = getPagination(page, size);
 
   try {
@@ -63,7 +63,6 @@ export const createRestaurant = async (req, res) => {
     department,
     municipality,
     direction,
-    delivery,
     phone,
     openingHour,
     closingHour,
@@ -76,7 +75,6 @@ export const createRestaurant = async (req, res) => {
     !department ||
     !municipality ||
     !direction ||
-    !delivery ||
     !phone ||
     !openingHour ||
     !closingHour ||
@@ -108,7 +106,6 @@ export const createRestaurant = async (req, res) => {
       department,
       municipality,
       direction,
-      delivery,
       phone,
       openingHour,
       closingHour,
@@ -132,7 +129,6 @@ export const updateRestaurant = async (req, res) => {
     department,
     municipality,
     direction,
-    delivery,
     phone,
     openingHour,
     closingHour,
@@ -143,7 +139,6 @@ export const updateRestaurant = async (req, res) => {
     !department ||
     !municipality ||
     !direction ||
-    !delivery ||
     !phone ||
     !openingHour ||
     !closingHour
@@ -163,7 +158,6 @@ export const updateRestaurant = async (req, res) => {
           department,
           municipality,
           direction,
-          delivery,
           phone,
           openingHour,
           closingHour,
@@ -197,7 +191,6 @@ export const updateRestaurant = async (req, res) => {
         department,
         municipality,
         direction,
-        delivery,
         phone,
         openingHour,
         closingHour,
