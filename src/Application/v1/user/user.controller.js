@@ -7,13 +7,13 @@ export const loginUser = async (req, res) => {
   const user = await userModel.findOne({ username });
   if (!user) {
     return res.status(404).json({
-      message: 'User not found',
+      message: 'Las credenciales ingresadas son invalidas',
     });
   }
   const isMatch = await comparePass(password, user.password);
   if (!isMatch) {
     return res.status(401).json({
-      message: 'Invalid credentials',
+      message: 'Las credenciales ingresadas son invalidas',
     });
   }
   const token = genToken(user._id);
@@ -27,7 +27,7 @@ export const createUser = async (req, res) => {
   const user = await userModel.findOne({ username });
   if (user) {
     return res.status(409).json({
-      message: 'User already exists',
+      message: 'El usuario ya existe, por favor ingrese otro',
     });
   }
   if (!name || !username || !password) {

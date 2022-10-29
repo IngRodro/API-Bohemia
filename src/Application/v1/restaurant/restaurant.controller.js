@@ -70,6 +70,7 @@ export const createRestaurant = async (req, res) => {
 
   const { idUser } = req;
 
+  console.log(req.body);
   if (
     !name ||
     !department ||
