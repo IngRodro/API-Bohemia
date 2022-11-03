@@ -28,7 +28,8 @@ export const getMenu = async (req, res) => {
       restaurant: idRestaurant,
       status: 'active',
     })
-      .populate('products.product', ['_id', 'name', 'image']);
+      .populate('products.product', ['_id', 'name', 'image'])
+      .populate('restaurant', ['_id', 'name', 'image']);
     if (offset >= data.length) {
       return res.status(404).json({
         message: 'Not found',
