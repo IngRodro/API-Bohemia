@@ -15,9 +15,7 @@ export const getAllProduct = async (req, res) => {
       status: 'active',
     });
     if (offset >= data.length) {
-      return res.status(404).json({
-        message: 'Not found',
-      });
+      return res.status(200).json([]);
     }
     const products = data.slice(offset, parseInt(offset, 10) + parseInt(limit, 10));
     return res.status(200).json({
