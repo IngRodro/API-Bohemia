@@ -37,6 +37,7 @@ export const getMenu = async (req, res) => {
     }
     const menus = data.slice(offset, parseInt(offset, 10) + parseInt(limit, 10));
     return res.status(200).json({
+      totalPages: Math.ceil(data.length / limit),
       menus,
       currentPage: page,
       numberOfItems: menus.length,
