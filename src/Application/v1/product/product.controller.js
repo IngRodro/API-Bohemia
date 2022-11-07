@@ -19,6 +19,7 @@ export const getAllProduct = async (req, res) => {
     }
     const products = data.slice(offset, parseInt(offset, 10) + parseInt(limit, 10));
     return res.status(200).json({
+      totalPages: Math.ceil(data.length / limit),
       products,
       currentPage: page ? parseInt(page, 10) : 1,
       numberOfItems: products.length,
