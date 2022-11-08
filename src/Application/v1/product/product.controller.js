@@ -127,9 +127,10 @@ export const deleteProduct = async (req, res) => {
   }
 
   try {
-    const data = await ProductModel.findOneAndUpdate(
+    const actualData = await ProductModel.findById(idProduct);
+    await deleteFile(actualData.image.public_id);
+    const data = await ProductModel.deleteOne(
       { _id: idProduct },
-      { status: 'inactive' }
     );
 
     return res.status(200).json({

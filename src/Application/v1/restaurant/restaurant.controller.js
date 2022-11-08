@@ -2,6 +2,8 @@ import fs from 'fs-extra';
 import { getPagination } from 'Utils/getPagination';
 import RestaurantModel from './restaurant.model';
 import { uploadFile, deleteFile } from '../../../Utils/cloudFile';
+import ProductModel from '../product/product.model';
+import MenuOptionsModel from '../menuOptions/menuOptions.model';
 
 export const getRestaurantByUser = async (req, res) => {
   const { idUser } = req;
@@ -212,14 +214,15 @@ export const deleteRestaurant = async (req, res) => {
   try {
     const { idRestaurant } = req.params;
 
-    const data = await RestaurantModel.findOneAndUpdate(
+    const actualData = await RestaurantModel.findById(idRestaurant);
+    await deleteFile(actualData.image.public_id);
+    await RestaurantModel.deleteOne(
       { _id: idRestaurant },
-      { status: 'inactive' }
     );
+    await MenuOptionsModel.deleteMany({ restaurant: idRestaurant });
 
     return res.status(200).json({
-      ...data,
-      status: 'inactive',
+      message: 'Restaurant deleted',
     });
   } catch (error) {
     return res.status(500).json({
