@@ -2,7 +2,6 @@ import fs from 'fs-extra';
 import { getPagination } from 'Utils/getPagination';
 import RestaurantModel from './restaurant.model';
 import { uploadFile, deleteFile } from '../../../Utils/cloudFile';
-import ProductModel from '../product/product.model';
 import MenuOptionsModel from '../menuOptions/menuOptions.model';
 
 export const getRestaurantByUser = async (req, res) => {
